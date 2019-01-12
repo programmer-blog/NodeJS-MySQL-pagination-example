@@ -1,0 +1,50 @@
+extends layout
+block content
+  .container
+    h2 NodeJs MySQL pagination example
+    .success
+    .error
+    table
+      tbody
+        tr
+          th #
+          th Product Name
+          th Price
+          th Category
+
+        each item in data
+         tr
+           td #{item['id']}
+           td #{item['product_name']}
+           td #{item['price']}
+           td #{item['category']}
+        
+  if pageCount > 1
+       ul.pagination
+        if currentPage > 1
+         li
+          a(href='/?page=1')  &laquo;
+        - var x = 1
+        if currentPage > 5
+         - x = x + (currentPage - 4)
+        if (x !== 1)
+           li.disabled
+              a(href='#') ...
+        - for (x; x <= pageCount; x++)
+           if( currentPage == x)
+            li.active
+               span.sr_only
+                   = currentPage
+           else
+             li
+               a(href= "/?page="+x )
+                = x
+           if x == (currentPage + 4)
+               li.disabled
+                a(href="#") ...
+                - break
+        if currentPage != pageCount
+        li
+            a(href= "/?page=#{Math.floor(pageCount)}" ) &raquo;
+  script(src='https://code.jquery.com/jquery-3.1.1.min.js')
+  script.
