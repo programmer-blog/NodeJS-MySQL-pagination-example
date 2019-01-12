@@ -16,4 +16,4 @@ Following tasks are performed in this tutorial:
 
 Note: Please do NPM install before running the tutorial.
 
-Read Full tutorial at: programmerblog.net/nodejs-mysql-pagination-example-beginners/
+Read Full tutorial at: http://programmerblog.net/nodejs-mysql-pagination-example-beginners/
